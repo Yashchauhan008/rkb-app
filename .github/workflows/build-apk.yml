@@ -24,6 +24,8 @@ jobs:
           distribution: temurin
           java-version: '17'
 
+      - uses: gradle/actions/setup-gradle@v4
+
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
@@ -37,7 +39,7 @@ jobs:
 
       - name: Build release APK
         working-directory: android
-        run: ./gradlew assembleRelease --no-daemon -PreactNativeArchitectures=arm64-v8a,armeabi-v7a,x86_64
+        run: ./gradlew assembleRelease --parallel --build-cache -PreactNativeArchitectures=arm64-v8a
 
       # Sign with our permanent key so every new APK installs over the old one
       - name: Sign APK with release keystore
