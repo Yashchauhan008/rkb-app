@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #EDB845;
+  --color-primary-dark: #D9A83D;
+  --color-primary-light: #F5CF3F;
+}
